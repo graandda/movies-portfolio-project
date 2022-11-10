@@ -1,0 +1,10 @@
+<div class="special-sec1 row mt-3 editContent">
+  <div class="img-deals col-md-4">
+    <img src="{{ movie.poster_image.url }}" class="img-fluid" alt="">
+  </div>
+  <div class="img-deal1 col-md-4">
+    <a href="{% url "movies:movie-detail" pk=movie.id %}" class="editContent" >
+      <h3 class="editContent">{{ movie.title }}</h3>
+    </a>
+  </div>
+</div>

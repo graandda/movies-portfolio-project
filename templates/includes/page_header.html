@@ -1,0 +1,60 @@
+{% load static %}
+
+<div id="page" class="page"><!-- mian-content -->
+        <div class="main-banner bg bg1" id="home" style="background-color: rgba(0, 0, 0, 0); margin-top: 0; background-image: {% static "images/banner.jpg" %};">
+            <!-- header -->
+            <header class="header">
+                <div class="container-fluid px-lg-5">
+                    <!-- nav -->
+                    <nav class="py-4">
+                        <div id="logo">
+                            <h1> <a href="{% url "movies:index" %}" class="editContent" style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">BestMovie</a></h1>
+                        </div>
+
+                        <label for="drop" class="toggle">Menu</label>
+                        <input type="checkbox" id="drop">
+                        <ul class="menu mt-2">
+                            <li class="active"><a href="{% url "movies:index" %}">Home</a></li>
+                            <li>
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">Category <span class="fa fa-angle-down" aria-hidden="true" ></span> </label>
+                                <a href="#">Category <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                <input type="checkbox" id="drop-2">
+                                <ul>
+                                    <li><a href="{% url "movies:index" %}">Movies</a></li>
+                                    <li><a href="{% url "movies:index" %}">TV Show</a></li>
+                                    <li><a href="{% url "movies:index" %}">Cartoon</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                              {% if user.is_authenticated %}
+                                <a style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;" href="{% url "movies:logout" %}">Logout</a>
+                                <a href="{% url "movies:user-profile" %}">Welcome, {{user.username}}</a>
+                              {% else %}
+                              <a href="{% url "movies:login" %}" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Login</a>
+                              <a class="active" href="{% url "movies:register" %}" style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Sing in</a>
+                              {% endif %}
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- //nav -->
+                </div>
+            </header>
+            <!-- //header -->
+            <!--/banner-->
+            <div class="banner-info">
+                <h3 class="mb-4 editContent">the best movies ever</h3>
+                <div class="ban-buttons">
+
+                </div>
+            </div>
+            <!--// banner-inner -->
+
+        </div>
+        <ol class="breadcrumb editContent">
+                  <li class="breadcrumb-item">
+                      <a href="{% url "movies:index" %}" class="editContent">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active editContent">Single Page</li>
+        </ol>
+</div>

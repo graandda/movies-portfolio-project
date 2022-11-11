@@ -85,6 +85,16 @@ class ActorDetailView(generic.DetailView):
     template_name = "movies/actor_detail.html"
 
 
+class ActorListView(generic.ListView):
+    model = Actor
+    template_name = "movies/actor_list.html"
+
+
 class DirectorDetailView(generic.DetailView):
     model = Director
     template_name = "movies/director_detail.html"
+
+
+class DirectorListView(generic.ListView):
+    model = Director
+    template_name = "movies/director_list.html"

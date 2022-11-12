@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 
 from .models import Movie, Genre, User, Actor, Director
-from .forms import NewUserForm
+from .forms import NewUserForm, MovieSearchForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 
@@ -72,7 +72,26 @@ class MovieListView(generic.ListView):
     model = Movie
     context_object_name = "movie_list"
     template_name = "base.html"
-    paginate_by = 10
+    paginate_by = 6
+    queryset = Movie.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(MovieListView, self).get_context_data(**kwargs)
+
+        title = self.request.GET.get("title", "")
+
+        context["search_form"] = MovieSearchForm(initial={"title": title})
+        return context
+
+    def get_queryset(self):
+        form = MovieSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return self.queryset.filter(
+                title__icontains=form.cleaned_data["title"]
+            )
+
+        return self.queryset
 
 
 class MovieListforallView(generic.ListView):

@@ -4,20 +4,6 @@ from crispy_forms.helper import FormHelper
 from movies.models import User
 
 
-# class NewUserForm(UserCreationForm):
-#
-#     class Meta(UserCreationForm.Meta):
-#         model = User
-#         fields = ("username", "email", "password1", "password2")
-#
-#     def save(self, commit=True):
-#         user = super(NewUserForm, self).save(commit=False)
-#         user.email = self.cleaned_data['email']
-#         if commit:
-#             user.save()
-#         return user
-
-
 class NewUserForm(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(
@@ -72,3 +58,12 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class MovieSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by title..."}),
+    )

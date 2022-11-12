@@ -15,17 +15,29 @@
     <div class="align-jumbotron p-1 p-md-5 text-white rounded bg-dark-left">
       <div class="card flex-md-row mb-5 box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <p><strong>Director by:</strong> {{ movie.director }}</p>
-                <p><strong>Actors:</strong> {{ movie.actors }}</p>
+                <p><strong>Director by:</strong>
+                  {% for director in  movie.director.all  %}
+                  <a href="{% url "movies:director-detail" pk=director.id %}">{{ director }}</a>
+                  {% endfor %}</p>
+                </p>
+                <p><strong>Actors:</strong>
+                  {% for actor in  movie.actors.all  %}
+                  <a href="{% url "movies:actor-detail" pk=actor.id %}">{{ actor }}</a>
+                {% endfor %}</p>
                 <p><strong>Budget:</strong> {{ movie.budget }}</p>
                 <p><strong>World Premiere:</strong> {{ movie.world_premiere }}</p>
                 <p><strong>Country:</strong> {{ movie.country }}</p>
-                <p><strong>Genre:</strong> {{ movie.genres }}</p>
+                <p><strong>Genre:</strong>
+                  {% for genre in  movie.genres.all  %}
+                  {{ genre }}
+                  {% endfor %}
+                </p>
                 <p><strong>Description:</strong> {{ movie.description }}</p>
               </div>
       <div class="col-md-3 px-1">
         <img class="card-img-left flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 100%; height: 100%;" src="{{ movie.poster_image.url }}" data-holder-rendered="true">
       </div>
+    </div>
     </div>
 
 

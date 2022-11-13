@@ -4,7 +4,7 @@ Django project for movie fans!
 
 ## Check it out!
 
-[Movie project deployed](PASTE_LINK_HERE)
+[Movie project deployed to Render](https://movie-project-bvrk.onrender.com/)
 
 ## Installation
 

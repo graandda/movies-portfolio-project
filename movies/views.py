@@ -113,13 +113,16 @@ class ActorDetailView(generic.DetailView):
 class ActorListView(generic.ListView):
     model = Actor
     template_name = "movies/actor_list.html"
+    paginate_by = 6
 
 
 class DirectorDetailView(generic.DetailView):
     model = Director
     template_name = "movies/director_detail.html"
+    paginate_by = 6
 
 
 class DirectorListView(generic.ListView):
     model = Director
     template_name = "movies/director_list.html"
+    paginate_by = 5

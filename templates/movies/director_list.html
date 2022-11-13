@@ -31,6 +31,11 @@
                         {% block content %}
                         {% endblock %}
                         </div>
+                        <div class="form-check d-flex justify-content-center" style="margin-top: 40px">
+                          {% block pagination %}
+                            {% include "includes/pagination.html" %}
+                          {% endblock %}
+                        </div>
                     </div>
                 </div>
             </div>

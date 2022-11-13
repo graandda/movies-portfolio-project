@@ -11,6 +11,7 @@ class Director(models.Model):
     profile_image = models.ImageField("image", upload_to="directors/")
 
     class Meta:
+        ordering = ["first_name"]
         verbose_name = "director"
         verbose_name_plural = "directors"
 
@@ -25,6 +26,7 @@ class Actor(models.Model):
     profile_image = models.ImageField("image", upload_to="actors/")
 
     class Meta:
+        ordering = ["first_name"]
         verbose_name = "actor"
         verbose_name_plural = "actors"
 
@@ -51,6 +53,7 @@ class Category(models.Model):
     url = models.SlugField(max_length=100, unique=True)
 
     class Meta:
+
         verbose_name = "category"
         verbose_name_plural = "categories"
 
@@ -73,6 +76,7 @@ class Movie(models.Model):
     url = models.SlugField(max_length=150, unique=True)
 
     class Meta:
+        ordering = ["title"]
         verbose_name = "movie"
         verbose_name_plural = "movies"
 

@@ -25,3 +25,4 @@ python manage.py runserver # starts Django server
 * Likes functionality
 * Rating of the films
 
+![Website interface](demo.png)

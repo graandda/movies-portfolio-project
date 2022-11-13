@@ -35,15 +35,19 @@ def register_request(request):
             return redirect("movies:index")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
-    return render(request=request, template_name="registration/registration.html", context={"register_form": form})
+    return render(
+        request=request,
+        template_name="registration/registration.html",
+        context={"register_form": form},
+    )
 
 
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
@@ -54,7 +58,11 @@ def login_request(request):
         else:
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
-    return render(request=request, template_name="registration/login.html", context={"login_form": form})
+    return render(
+        request=request,
+        template_name="registration/login.html",
+        context={"login_form": form},
+    )
 
 
 def logout_request(request):
@@ -68,7 +76,15 @@ def profile(request):
     return render(request, "movies/user_profile.html")
 
 
-class MovieListView(generic.ListView):
+class GenreYear:
+    def get_genres(self):
+        return Genre.objects.all()
+
+    def get_years(self):
+        return Movie.objects.filter().values("year")
+
+
+class MovieListView(GenreYear, generic.ListView):
     model = Movie
     context_object_name = "movie_list"
     template_name = "base.html"
@@ -87,30 +103,22 @@ class MovieListView(generic.ListView):
         form = MovieSearchForm(self.request.GET)
 
         if form.is_valid():
-            return self.queryset.filter(
-                title__icontains=form.cleaned_data["title"]
-            )
+            return self.queryset.filter(title__icontains=form.cleaned_data["title"])
 
         return self.queryset
 
 
-class MovieListforallView(generic.ListView):
-    model = Movie
-    context_object_name = "movie_list"
-    template_name = "movies/index.html"
-
-
-class MovieDetailView(generic.DetailView):
+class MovieDetailView(GenreYear, generic.DetailView):
     model = Movie
     template_name = "movies/movie_detail.html"
 
 
-class ActorDetailView(generic.DetailView):
+class ActorDetailView(GenreYear, generic.DetailView):
     model = Actor
     template_name = "movies/actor_detail.html"
 
 
-class ActorListView(generic.ListView):
+class ActorListView(GenreYear, generic.ListView):
     model = Actor
     template_name = "movies/actor_list.html"
     paginate_by = 6

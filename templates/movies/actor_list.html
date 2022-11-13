@@ -10,17 +10,10 @@
         <!-- banner -->
         <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem;">
             <div class="container-fluid py-md-3">
-                <div class="row">
-                    <div class="side-bar col-lg-3">
-                        <!-- sidebar -->
-                        {% block sidebar %}
-                          {% include "includes/sidebar.html" %}
-                        {% endblock %}
-                        <!-- //sidebar -->
-                    </div>
+                <div class="row justify-content-center">
 
                     <!-- ACTOR CARDS -->
-                    <div class="left-ads-display col-lg-9">
+                    <div class="ads-display col-lg-9 ">
                         <div class="row">
                           {% for actor in actor_list %}
                             {% block movies_card %}

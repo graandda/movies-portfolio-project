@@ -98,7 +98,9 @@ class RaitingStars(models.Model):
 class Rating(models.Model):
     ip = models.CharField(max_length=16)
     movie = models.ForeignKey(Movie, related_name="rating", on_delete=models.CharField)
-    star = models.ForeignKey(RaitingStars, related_name="stars", on_delete=models.CharField)
+    star = models.ForeignKey(
+        RaitingStars, related_name="stars", on_delete=models.CharField
+    )
 
     class Meta:
         verbose_name = "rating"
@@ -120,7 +122,6 @@ class MovieShots(models.Model):
 
 
 class User(AbstractUser):
-
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"

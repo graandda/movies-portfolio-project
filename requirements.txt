@@ -3,6 +3,7 @@ beautifulsoup4==4.11.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
 crispy-bootstrap5==0.7
+dj-database-url==1.0.0
 Django==4.1
 django-bootstrap-v5==1.0.11
 django-crispy-forms==1.14.0
@@ -14,9 +15,11 @@ flake8-variables-names==0.0.5
 idna==3.3
 mccabe==0.7.0
 pep8-naming==0.13.2
+psycopg2-binary==2.9.5
 pycodestyle==2.9.1
 pyflakes==2.5.0
 requests==2.27.1
 soupsieve==2.3.2.post1
 sqlparse==0.4.3
 urllib3==1.26.9
+whitenoise==6.2.0

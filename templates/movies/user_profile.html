@@ -1,0 +1,21 @@
+{% load crispy_forms_filters %}
+{% include "movies/index.html" %}
+
+{% block page_header %}
+  {% include "includes/page_header.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1>Profile page for {{user.username}}</h1>
+        <p>first_name: {{ user.username }}</p>
+        <p>last_name: {{ user.username }}</p>
+        <p></p>
+        <p></p>
+    </div>
+
+{% endblock content %}
+
+{% block footer %}
+  {% include "includes/page_footer.html" %}
+{% endblock %}

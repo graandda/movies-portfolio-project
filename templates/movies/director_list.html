@@ -1,0 +1,42 @@
+{% include "movies/index.html" %}
+
+
+
+<body>
+
+    {% block page_header %}
+      {% include "includes/page_header.html" %}
+    {% endblock %}
+
+        <!---->
+        <!-- banner -->
+        <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem;">
+            <div class="container-fluid py-md-3">
+                <div class="row justify-content-center">
+
+                    <!-- DIRECTOR CARDS -->
+                    <div class="left-ads-display col-lg-9">
+                        <div class="row">
+                          {% for director in director_list %}
+                            {% block director_card %}
+                              {% include "includes/director_card.html" %}
+                            {% endblock %}
+                          {% endfor %}
+                        {% block content %}
+                        {% endblock %}
+                        </div>
+                        <div class="form-check d-flex justify-content-center" style="margin-top: 40px">
+                          {% block pagination %}
+                            {% include "includes/pagination.html" %}
+                          {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //contact -->
+        <!-- footer -->
+        {% block footer %}
+          {% include "includes/page_footer.html" %}
+        {% endblock %}
+</body>

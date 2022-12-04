@@ -8,7 +8,7 @@ class Director(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     description = models.TextField(max_length=512, null=True, blank=True)
-    profile_image = models.ImageField("image", upload_to="directors/")
+    profile_image = models.ImageField("image", upload_to="directors")
 
     class Meta:
         ordering = ["first_name"]
@@ -23,7 +23,7 @@ class Actor(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     description = models.TextField(max_length=512, null=True, blank=True)
-    profile_image = models.ImageField("image", upload_to="actors/")
+    profile_image = models.ImageField("image", upload_to="actors")
 
     class Meta:
         ordering = ["first_name"]
@@ -64,7 +64,7 @@ class Category(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField(max_length=512, null=True, blank=True)
-    poster_image = models.ImageField("image", upload_to="movies/")
+    poster_image = models.ImageField("image", upload_to="movies")
     year = models.PositiveSmallIntegerField(default=2022)
     country = models.CharField(max_length=64)
     director = models.ManyToManyField(Director, related_name="film_director")
@@ -110,7 +110,7 @@ class Rating(models.Model):
 class MovieShots(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=512, null=True, blank=True)
-    image = models.ImageField(upload_to="movie_shots/")
+    image = models.ImageField(upload_to="movie_shots")
     id_movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
 
     class Meta:

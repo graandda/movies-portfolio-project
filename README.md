@@ -4,7 +4,9 @@ Django project for movie fans!
 
 ## Check it out!
 
-[Movie project deployed to Render](https://movie-project-bvrk.onrender.com/)
+[deployed to PythonAnywhere](http://graanddadays.pythonanywhere.com/)
+
+[deployed to Render](https://movie-project-bvrk.onrender.com/)
 
 ## Installation
 

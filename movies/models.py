@@ -64,7 +64,7 @@ class Category(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField(max_length=512, null=True, blank=True)
-    poster_image = models.ImageField("image", upload_to="movies")
+    poster_image = models.ImageField("image", upload_to="movies_img")
     year = models.PositiveSmallIntegerField(default=2022)
     country = models.CharField(max_length=64)
     director = models.ManyToManyField(Director, related_name="film_director")

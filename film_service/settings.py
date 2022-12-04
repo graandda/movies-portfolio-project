@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+# SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+SECRET_KEY="(%%nc(149^o#om8itxz=el9#(re7_(3ru2^5wbg*vj_ft$ul"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
@@ -136,7 +137,7 @@ STATIC_ROOT = "staticfiles/"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MEDIA_URL = "/media/"
-MEDIA_DIR = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 AUTH_USER_MODEL = "movies.User"
 
